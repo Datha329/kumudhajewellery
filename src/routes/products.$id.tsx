@@ -4,6 +4,7 @@ import { ChevronRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ProductCard } from "@/components/product-card";
+import { ProductGallery } from "@/components/product-gallery";
 import type { Product } from "@/lib/types";
 
 export const Route = createFileRoute("/products/$id")({
