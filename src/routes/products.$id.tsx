@@ -41,6 +41,21 @@ function ProductDetail() {
     },
   });
 
+  const { data: gallery = [] } = useQuery<{ image_url: string; alt: string | null }[]>({
+    queryKey: ["product-gallery", product?.id],
+    enabled: !!product,
+    queryFn: async () => {
+      if (!product) return [];
+      const { data, error } = await supabase
+        .from("product_images")
+        .select("image_url, alt")
+        .eq("product_id", product.id)
+        .order("sort_order");
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
+
   const { data: related = [] } = useQuery<Product[]>({
     queryKey: ["related", product?.category_id, product?.id],
     enabled: !!product,
