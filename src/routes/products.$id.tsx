@@ -4,6 +4,7 @@ import { ChevronRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { ProductCard } from "@/components/product-card";
+import { ProductGallery } from "@/components/product-gallery";
 import type { Product } from "@/lib/types";
 
 export const Route = createFileRoute("/products/$id")({
@@ -38,6 +39,21 @@ function ProductDetail() {
         .maybeSingle();
       if (error) throw error;
       return data;
+    },
+  });
+
+  const { data: gallery = [] } = useQuery<{ image_url: string; alt: string | null }[]>({
+    queryKey: ["product-gallery", product?.id],
+    enabled: !!product,
+    queryFn: async () => {
+      if (!product) return [];
+      const { data, error } = await supabase
+        .from("product_images")
+        .select("image_url, alt")
+        .eq("product_id", product.id)
+        .order("sort_order");
+      if (error) throw error;
+      return data ?? [];
     },
   });
 
@@ -101,17 +117,10 @@ function ProductDetail() {
 
       <div className="mt-8 grid gap-10 md:gap-16 md:grid-cols-2 items-start">
         {/* Gallery */}
-        <div>
-          <div className="relative aspect-square overflow-hidden bg-secondary/40 hairline">
-            <img
-              src={product.image_url}
-              alt={product.image_alt ?? product.name}
-              width={1024}
-              height={1024}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
+        <ProductGallery
+          main={{ url: product.image_url, alt: product.image_alt ?? product.name }}
+          gallery={gallery}
+        />
 
         {/* Info */}
         <div className="fade-up">
