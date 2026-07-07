@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Camera, Sparkles, Shield, Gem } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard } from "@/components/product-card";
-import heroImage from "@/assets/hero-necklace.jpg";
+import { HeroRotator } from "@/components/hero-rotator";
 import type { Product, Category } from "@/lib/types";
 
 export const Route = createFileRoute("/")({
@@ -96,16 +96,7 @@ function HomePage() {
 
           <div className="relative">
             <div className="absolute -inset-6 md:-inset-10 bg-gradient-to-br from-[var(--gold-soft)]/50 via-transparent to-[var(--gold-deep)]/10 blur-2xl" />
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img
-                src={heroImage}
-                alt="Signature Kumudha gold temple pendant with ruby drops"
-                width={1600}
-                height={1200}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[var(--gold-deep)]/30" />
-            </div>
+            <HeroRotator className="relative" />
           </div>
         </div>
       </section>
