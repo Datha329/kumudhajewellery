@@ -116,17 +116,10 @@ function ProductDetail() {
 
       <div className="mt-8 grid gap-10 md:gap-16 md:grid-cols-2 items-start">
         {/* Gallery */}
-        <div>
-          <div className="relative aspect-square overflow-hidden bg-secondary/40 hairline">
-            <img
-              src={product.image_url}
-              alt={product.image_alt ?? product.name}
-              width={1024}
-              height={1024}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
+        <ProductGallery
+          main={{ url: product.image_url, alt: product.image_alt ?? product.name }}
+          gallery={gallery}
+        />
 
         {/* Info */}
         <div className="fade-up">
