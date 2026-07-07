@@ -14,7 +14,151 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          slug: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          slug: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          slug?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      inquiry_clicks: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string | null
+          source: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          source?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          source?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inquiry_clicks_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          availability: string
+          care_instructions: string | null
+          category_id: string | null
+          collection: string | null
+          created_at: string
+          description: string | null
+          dimensions: string | null
+          id: string
+          image_alt: string | null
+          image_url: string
+          is_bestseller: boolean
+          is_featured: boolean
+          is_new: boolean
+          jewelry_type: string | null
+          metal: string | null
+          name: string
+          purity: string | null
+          short_description: string | null
+          sku: string | null
+          slug: string
+          sort_order: number
+          stones: string[]
+          style_tags: string[]
+          weight: string | null
+        }
+        Insert: {
+          availability?: string
+          care_instructions?: string | null
+          category_id?: string | null
+          collection?: string | null
+          created_at?: string
+          description?: string | null
+          dimensions?: string | null
+          id?: string
+          image_alt?: string | null
+          image_url: string
+          is_bestseller?: boolean
+          is_featured?: boolean
+          is_new?: boolean
+          jewelry_type?: string | null
+          metal?: string | null
+          name: string
+          purity?: string | null
+          short_description?: string | null
+          sku?: string | null
+          slug: string
+          sort_order?: number
+          stones?: string[]
+          style_tags?: string[]
+          weight?: string | null
+        }
+        Update: {
+          availability?: string
+          care_instructions?: string | null
+          category_id?: string | null
+          collection?: string | null
+          created_at?: string
+          description?: string | null
+          dimensions?: string | null
+          id?: string
+          image_alt?: string | null
+          image_url?: string
+          is_bestseller?: boolean
+          is_featured?: boolean
+          is_new?: boolean
+          jewelry_type?: string | null
+          metal?: string | null
+          name?: string
+          purity?: string | null
+          short_description?: string | null
+          sku?: string | null
+          slug?: string
+          sort_order?: number
+          stones?: string[]
+          style_tags?: string[]
+          weight?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
