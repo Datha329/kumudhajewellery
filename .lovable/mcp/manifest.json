@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "kumudha-jewelry-mcp",
+      "version": "0.1.0",
+      "title": "Kumudha Jewelry"
+    },
+    "tools": [
+      {
+        "name": "list_categories",
+        "title": "List jewelry categories",
+        "description": "List Kumudha Jewelry catalog categories (Necklaces, Rings, Earrings, etc.) with their slugs and descriptions.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_products",
+        "title": "List jewelry products",
+        "description": "List products from the Kumudha Jewelry catalog. Filter by category slug, featured flag, or new-arrival flag. Returns a compact list; use get_product for full details and gallery.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "categorySlug": {
+              "description": "Category slug, e.g. 'necklaces'.",
+              "type": "string"
+            },
+            "featured": {
+              "description": "Only featured products.",
+              "type": "boolean"
+            },
+            "isNew": {
+              "description": "Only products marked as new arrivals.",
+              "type": "boolean"
+            },
+            "limit": {
+              "description": "Max items (default 50).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_product",
+        "title": "Get jewelry product details",
+        "description": "Get full details for one Kumudha Jewelry product by slug, including all gallery images, metal, stones, dimensions, care instructions, and category.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Product slug from list_products."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_products",
+        "title": "Search jewelry products",
+        "description": "Search Kumudha Jewelry products by keyword across name, description, collection, metal, and style tags.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Search text, e.g. 'temple necklace' or 'bridal ring'."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
