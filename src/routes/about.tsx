@@ -55,7 +55,7 @@ function AboutPage() {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6">
             <Pillar title="Design" body="Every piece begins with a sketch that honors both tradition and the wearer." />
-            <Pillar title="Metal" body="22k and 18k gold, BIS-hallmarked, sourced from certified refiners." />
+            <Pillar title="Metal" body="Premium copper core with a pure gold outer finish, crafted for elegance and lasting wear." />
             <Pillar title="Stones" body="Ethically sourced diamonds, rubies, emeralds and freshwater pearls." />
             <Pillar title="Finishing" body="Hand-polished to a mirror finish. Set, checked and quality-graded." />
           </div>
@@ -80,7 +80,7 @@ function AboutPage() {
             <div>
               <div className="eyebrow" style={{ color: "var(--gold-soft)" }}>Promise</div>
               <p className="mt-3 text-lg leading-relaxed">
-                Hallmarked purity, honest weight, and a lifetime of care with every piece.
+                Honest purity, honest weight, and a lifetime of care with every piece.
               </p>
             </div>
           </div>

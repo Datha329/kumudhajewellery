@@ -10,10 +10,10 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Reach Kumudha Jewelry on WhatsApp or visit our boutique. We reply personally to every inquiry.",
+          "Reach Kumudha Jewelry on WhatsApp. We reply personally to every inquiry.",
       },
       { property: "og:title", content: "Contact Kumudha Jewelry" },
-      { property: "og:description", content: "WhatsApp, email and boutique hours." },
+      { property: "og:description", content: "WhatsApp, email and hours." },
     ],
   }),
   component: ContactPage,
@@ -29,7 +29,7 @@ function ContactPage() {
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">
           The fastest way to reach us is on WhatsApp. Message us about a specific
-          piece, a custom design, or to book a boutique appointment.
+          piece, a custom design, or to book an appointment.
         </p>
         <div className="mt-8">
           <a href={buildInquiryUrl({ message: "Hello Kumudha Jewelry, I'd like to know more." })}
@@ -53,7 +53,7 @@ function ContactPage() {
                 {SITE.address}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Boutique visits are by appointment. Message us on WhatsApp to schedule.
+                Visits are by appointment. Message us on WhatsApp to schedule.
               </p>
             </div>
           </div>
