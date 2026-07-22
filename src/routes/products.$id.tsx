@@ -163,9 +163,9 @@ function ProductDetail() {
           {/* Trust badges */}
           <div className="mt-10 grid grid-cols-3 gap-4">
             {[
-              { icon: ShieldCheck, label: "Hallmarked" },
               { icon: Sparkles, label: "Hand-finished" },
               { icon: Truck, label: "Insured delivery" },
+              { icon: ShieldCheck, label: "Lifetime care" },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="text-center">
                 <Icon className="h-5 w-5 mx-auto text-[var(--gold-deep)]" />

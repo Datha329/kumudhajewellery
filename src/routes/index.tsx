@@ -80,9 +80,11 @@ function HomePage() {
               made to be <em className="gold-shimmer not-italic">remembered</em>.
             </h1>
             <p className="mt-6 max-w-md text-base text-muted-foreground leading-relaxed">
-              Kumudha Jewelry is a family atelier of temple, bridal and diamond
-              jewelry — every piece hand-finished, hallmarked, and made for the
-              moments that matter.
+              Kumudha Jewelry is a family atelier crafting exquisite temple, bridal,
+              and contemporary jewelry with a premium copper core and a pure gold
+              outer finish. Every piece is meticulously handcrafted to offer the
+              elegance of gold at an accessible price—created for the moments that
+              matter most.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/collections" className="btn-ink">
@@ -177,7 +179,6 @@ function HomePage() {
       <section className="container-luxe mt-24 md:mt-32">
         <div className="grid gap-10 md:grid-cols-4 text-center">
           {[
-            { icon: Shield, title: "Hallmarked", body: "BIS-certified purity on every piece." },
             { icon: Gem, title: "Fine craftsmanship", body: "Hand-finished by master artisans." },
             { icon: Sparkles, title: "Timeless design", body: "Made to be worn — and inherited." },
             { icon: Camera, title: "Personal service", body: "Message us on WhatsApp for any piece." },
@@ -219,7 +220,7 @@ function HomePage() {
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-outline-gold" style={{ color: "var(--cream)", borderColor: "var(--gold-soft)" }}>
-              Visit the boutique
+              Chat with us
             </Link>
           </div>
         </div>
